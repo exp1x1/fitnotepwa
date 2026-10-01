@@ -4,7 +4,7 @@ import {SupabaseService} from './supabase/supabase';
 @Component({
   imports: [],
   selector: 'app-root',
-  styleUrl: './app.css',
+    styleUrl: './app.css',
   templateUrl: './app.html',
 })
 export class App {

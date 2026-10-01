@@ -1,16 +1,16 @@
-import {Component, signal} from '@angular/core';
-
-// import {SwUpdate} from '@angular/service-worker';
+import {Component, signal, inject} from '@angular/core';
+import {SupabaseService} from './supabase/supabase';
 
 @Component({
   imports: [],
   selector: 'app-root',
-    styleUrl: './app.css',
+  styleUrl: './app.css',
   templateUrl: './app.html',
 })
 export class App {
 
   // private swUpdate = inject(SwUpdate);
+  private client = inject(SupabaseService);
 
   constructor() {
     // if (this.swUpdate.isEnabled) {
@@ -22,5 +22,9 @@ export class App {
     //     }
     //   });
     // }
+
+    this.client.getUser().then((user) => {
+      console.log(user)
+    })
   }
 }
